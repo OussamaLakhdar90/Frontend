@@ -8,9 +8,25 @@ import lombok.Data;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Table(name="predictedforfait", schema = "pfe")
-@Data
+
 public class Predictedforfait {
-@Id
+    public String getId_client() {
+        return id_client;
+    }
+
+    public void setId_client(String id_client) {
+        this.id_client = id_client;
+    }
+
+    public String getForfait() {
+        return forfait;
+    }
+
+    public void setForfait(String forfait) {
+        this.forfait = forfait;
+    }
+
+    @Id
 private String id_client;
 private String forfait;
 

@@ -4,6 +4,7 @@ package PFE.ProjetFindetude.controllers;
 import PFE.ProjetFindetude.models.PlanTarifaire;
 import PFE.ProjetFindetude.repositories.PlanTarifaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +21,13 @@ public class planTarifaireController {
 
 
     @GetMapping
-    private List<PlanTarifaire> findall(Integer IDplanTarif){
-        return planTarifaireRepository.findAll();
+    private  ResponseEntity<List<PlanTarifaire>>findall(){
+        List<PlanTarifaire> plans= planTarifaireRepository.findAll();
+        if (plans.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(plans);
+        }
     }
 
 }
