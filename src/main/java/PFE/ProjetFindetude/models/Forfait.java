@@ -3,13 +3,35 @@ package PFE.ProjetFindetude.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
+
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Table(name="forfait", schema = "pfe")
 public class Forfait {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //jpa will utilise postgres created sequence
-    private String id_client;
+
+    private Integer id;
+
+    public String getId_client() {
+        return idclient;
+    }
+
+    public void setId_client(String id_client) {
+        this.idclient = id_client;
+    }
+
+    private String idclient;
     private String id_date;
     private Integer total_appel_on_net;
     private Integer total_sms_local;
@@ -20,24 +42,11 @@ public class Forfait {
     private Double cout_appel_onnet;
     private Double cout_appel_offnet;
     private Double cout_appel_international;
-    private Double cout_sms_national ;
-    private Double cout_sms_international ;
+    private Double cout_sms_national;
+    private Double cout_sms_international;
 
 
 
-
-    public Forfait(){
-
-
-    }
-
-    public String getId_client() {
-        return id_client;
-    }
-
-    public void setId_client(String id_client) {
-        this.id_client = id_client;
-    }
 
     public String getId_date() {
         return id_date;
