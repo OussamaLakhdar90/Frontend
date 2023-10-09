@@ -2,10 +2,12 @@ package PFE.ProjetFindetude.repositories;
 
 import PFE.ProjetFindetude.models.Forfait;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface ForfaitRepository extends JpaRepository<Forfait,Integer> { //Long refer to the primary key
+@Repository
+public interface ForfaitRepository extends JpaRepository<Forfait, Long>  { //Long refer to the primary key
 
     List<Forfait> findAllByIdclient(String idclient);
 }

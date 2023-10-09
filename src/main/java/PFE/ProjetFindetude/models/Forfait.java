@@ -3,13 +3,14 @@ package PFE.ProjetFindetude.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.util.List;
+
 
 @Entity
 
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-@Table(name="forfait", schema = "pfe")
+
 public class Forfait {
+
     public Integer getId() {
         return id;
     }
